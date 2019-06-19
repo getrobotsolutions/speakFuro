@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Test Communication</title>
+    </head>
+    <body>
+
+        <input id="txtKey" type="text" placeholder="key" style="width: 100px;">
+        <input id="txtValue" type="text" placeholder="value" style="width: 100px;">
+        <button onclick="sendToServer()">Send</button>
+
+        <script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+
+        <script>
+
+            function sendToServer() {
+
+                dataKey = $("#txtKey").val();
+                dataValue = $("#txtValue").val();
+
+                console.log("sending Key:" + dataKey + " Value:" + dataValue);
+
+                $.ajax({
+                    type: "GET",
+                    data: { key: dataKey, value: dataValue },
+                    url: "/api/sendresponse"
+                });
+            }
+        </script>
+
+
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Test Communication</title>
+    </head>
+    <body>
+
+
+        <input id="txtKey" type="text" value="" style="width: 100px;"/>
+        <input id="txtVal" type="text" value="" style="width: 100px;" />
+
+
+
+        <script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+
+        <script>
+            
+            var interval = setInterval(() => {
+                console.log("check");
+                $.getJSON("http://localhost:3000/api/getresponse", function(data) {
+                    $("#txtKey").val(data["key"]);
+                    $("#txtVal").val(data["value"]);
+
+                })
+            }, 1000);
+
+
+        
+        </script>
+
+    </body>
+</html>
